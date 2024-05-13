@@ -27,7 +27,6 @@ GLfloat vertex_buffer_data[] = {
 
 Now, create the IBO's to index these vertices.
 
-**OpenGL Function:**
 ```cpp
 GLint indices[] = {
     // Base indices
@@ -43,7 +42,6 @@ GLint indices[] = {
 
 Before rendering the pyramid, we need to bind the vertex buffer and index buffer. Binding buffers tells OpenGL which buffer to use for rendering. 
 
-**OpenGL Function:**
 ```cpp
 // Bind vertex buffer
 glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -58,7 +56,6 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 After binding, use the `glDrawElements` in `draw()` to render the pyramid(note that a pyramid requires 6 triangles so we modify our draw call with 6 x 3 = 18 vertices).
 
-**OpenGL Function:**
 ```cpp
 glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 ```
@@ -73,7 +70,6 @@ To fix this, we will use transformations using shader [uniforms](https://www.khr
 
 Transformations are used to manipulate the position, rotation, and scale of objects in 3D space. To position and rotate the pyramid, we'll use the  following transformation matrices in the `draw()` function.
 
-**OpenGL Function:**
 ```cpp
 // Compute rotation angle
 float rotation = glm::radians(45.0f + glfwGetTime());
@@ -105,7 +101,6 @@ glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(view));
 
 The vertex shader is responsible for processing vertex data before rendering. We'll update the vertex shader to accept transformation matrices as uniform variables.
 
-**OpenGL Function:**
 ```glsl
 #version 330 core
 
