@@ -81,6 +81,9 @@ glm::mat4 rot_mat = glm::rotate(glm::mat4(1.0f), rotation, glm::vec3(0, 1, 0));
 glm::mat4 tra_mat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f));
 // Combine translation and rotation
 glm::mat4 view = tra_mat * rot_mat * sca_mat;
+
+// Add perspective matrix
+glm::mat4 proj_mat = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 10.0f);
 ```
 
 Now, send these transformation matrices as uniforms to our shader.
