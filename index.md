@@ -44,11 +44,11 @@ Before rendering the pyramid, we need to bind the vertex buffer and index buffer
 
 ```cpp
 // Bind vertex buffer
-glBindBuffer(GL_ARRAY_BUFFER, VBO);
+glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_buffer_data), vertex_buffer_data, GL_STATIC_DRAW);
 
 // Bind index buffer
-glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[1]);
 glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 ```
 
